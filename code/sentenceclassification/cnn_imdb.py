@@ -47,6 +47,7 @@ X_test  = sequence.pad_sequences(X_test, maxlen=maxlen)
 print('X_train shape:', X_train.shape)
 print('X_test shape:', X_test.shape)
 
+print(type(X_train[1]))
 ##########################
 ## Building model
 ##########################

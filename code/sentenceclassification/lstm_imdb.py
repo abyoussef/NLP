@@ -26,6 +26,7 @@ train_split = 0.7     # ratio of train sentences
 # Luckily for you, the imdb dataset has already been preprocessed and included in Keras.
 (X_train, y_train), (X_test, y_test) = load_imdb(nb_words=vocab_size, train_split=train_split)
 
+
 print(len(X_train), 'train sequences')
 print(len(X_test), 'test sequences')
 
@@ -41,6 +42,7 @@ X_test  = sequence.pad_sequences(X_test, maxlen=maxlen)
 print('X_train shape:', X_train.shape)
 print('X_test shape:', X_test.shape)
 
+
 ##########################
 ## Building model
 ##########################
@@ -50,7 +52,7 @@ nhid      = 64 # number of hidden units in the LSTM
 print('\nBuilding model...')
 
 model = Sequential()
-if True: # TODO : Change to "False" to use dropout
+if False: # TODO : Change to "False" to use dropout
     model.add(Embedding(vocab_size, embed_dim))
     model.add(LSTM(nhid))
 else:
@@ -98,6 +100,7 @@ history = model.fit(X_train, y_train, batch_size=batch_size, nb_epoch=6, validat
 ## Evaluate on test set
 ##########################
 # evaluate model on test set (never seen during training)
+
 score, acc = model.evaluate(X_test, y_test,
                             batch_size=batch_size)
 print('\n\nTest loss:', score)
