@@ -229,7 +229,13 @@ if __name__ == "__main__":
 
         print l[:10]
         print l_phrase[:10]
-        #print "The phrase of id 777 is: {0}".format(l_phrase[777])
+
+
+        print "\n\n#### Opposit words : "
+        print "The opposite of small is {0} with score {1}".format(
+            model.most_similar(positive=['easy', 'small'], negative=['difficult'])[0][0],
+            model.most_similar(positive=['easy', 'small'], negative=['difficult'])[0][1])
+
     if False: # THIRD PART
         # Loading model trained on words
         model = word2vec.Word2Vec.load('models/text8.model')
@@ -253,6 +259,7 @@ if __name__ == "__main__":
         # TO DO : Implement the most_5_similar function to output the 5 sentences that are closest to the query.
         # TO DO : Report the 5 most similar sentences to query_idx = 777
         #########
+        # print "The phrase of id 777 is: {0}".format(l_phrase[777])
         closest_5_idx = most_5_similar(query_idx, array_embeddings, array_sentences)
         print "Query sentence is sentence of id {0}".format(query_idx)
         print "         {0}".format(array_sentences[query_idx])

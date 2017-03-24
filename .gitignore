@@ -18,11 +18,14 @@
 # *.ps
 # *.eps
 # *.pdf
-
+.idea/
+.idea/*.xml
+*/.idea/*.xml
 Report/*
 !Report/NLP_Report.pdf
 */.DS_Store
 .DS_Store
+*/.idea
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
 *.bcf
